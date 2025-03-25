@@ -1,0 +1,2 @@
+La idea de este decumeto es que escribamos cuales son las cosas que modificamos y lo que agregamos para que entendamos el 
+codigo.
