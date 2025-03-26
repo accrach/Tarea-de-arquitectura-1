@@ -1,2 +1,6 @@
 La idea de este decumeto es que escribamos cuales son las cosas que modificamos y lo que agregamos para que entendamos el 
 codigo.
+
+Mati 25/03:
+    cree una funcion simple pero que imprime el pasillo de las X, dentro de la funcion explico como funciona 
+    si en algun momento la modificas escribelo por aqui para cachar lo que cambiaste y porque.
