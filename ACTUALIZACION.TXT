@@ -4,3 +4,7 @@ codigo.
 Mati 25/03:
     cree una funcion simple pero que imprime el pasillo de las X, dentro de la funcion explico como funciona 
     si en algun momento la modificas escribelo por aqui para cachar lo que cambiaste y porque.
+
+Martin 27/03 00:07:
+    modifique un poco la funcion para pomner la S donde lo pide y estaba intentando hacer la parte de los guardias con random
+    pero no avance mucho en eso
