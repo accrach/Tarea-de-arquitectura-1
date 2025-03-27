@@ -3,7 +3,7 @@ def printeo_tablero():
     Esta funcion lo que hace es pedir al usurio el largo del pasillo
     y printea el pasillo corresponfiente.
     """
-    Largo = int(input("Largo del pasillo que decea: "))
+    Largo = int(input("Largo del pasillo que desea: "))
     i = 0
     #primer while son las columnas.
     while(11>i):
