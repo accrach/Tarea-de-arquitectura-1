@@ -8,3 +8,6 @@ Mati 25/03:
 Martin 27/03 00:07:
     modifique un poco la funcion para pomner la S donde lo pide y estaba intentando hacer la parte de los guardias con random
     pero no avance mucho en eso
+
+Martin 27/03 12:18
+    modifique la funcion para poder poner los guardias en posiciones al azar
