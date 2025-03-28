@@ -3,7 +3,7 @@ import math
 
 def binario(numero_binario):     #retorna el valor en decimal del numero binario ingresado
     
-    posicion = len(numero_binario) -1
+    posicion = len(numero_binario) - 1
     total = 0
     for i in numero_binario:
         digito = int(i)
@@ -12,8 +12,53 @@ def binario(numero_binario):     #retorna el valor en decimal del numero binario
             valor = 2 ** posicion
             total += valor 
         posicion -= 1
-       
     return total
+
+def octal(numero_octal):            #retorna el valor en decimal del numero octal ingresado
+    posicion = len(numero_octal) - 1
+    total = 0
+
+    for i in numero_octal:
+        digito = int(i)
+        valor = (8 ** posicion) * digito
+        posicion -= 1
+        total += valor
+    return total 
+
+def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero hexadecimal ingresado
+    
+    posicion = len(numero_hexadecimal) - 1
+    total = 0
+    numero_hexadecimal = numero_hexadecimal.upper()
+    for i in numero_hexadecimal:
+        if i.isdigit():
+            valor = (16 ** posicion) * int(i) 
+            total += valor
+        
+        else:
+            if i == 'A':
+                valor = (16 ** posicion) * 10
+                total += valor
+            elif i == 'B':
+                valor = (16 ** posicion) * 11
+                total += valor
+            elif i == 'C':
+                valor = (16 ** posicion) * 12
+                total += valor
+            elif i == 'D':
+                valor = (16 ** posicion) * 13
+                total += valor
+            elif i == 'E':
+                valor = (16 ** posicion) * 14
+                total += valor
+            elif i == 'F':
+                valor = (16 ** posicion) * 15
+                total += valor
+
+        posicion -= 1
+    
+    return total
+
 
 def Mover_personaje(Matriz,Largo):
     """
@@ -54,11 +99,13 @@ def Mover_personaje(Matriz,Largo):
 
     elif(Largo<100):    
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en octal")
-        numero_octal = int(input("Ingrese cantidad:"))
+        numero_octal = input("Ingrese cantidad:")
+        octal(numero_octal)
 
     else:
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en hexadecimal")    
-        numero_hexadecimal = int(input("Ingrese cantidad:"))
+        numero_hexadecimal = input("Ingrese cantidad:")
+        hexadecimal(numero_hexadecimal)
 
 def Imprimir_tablero(Tablero):
 
