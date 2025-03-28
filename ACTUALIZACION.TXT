@@ -15,3 +15,7 @@ Martin 27/03 12:18
 Mati 27/03 22:30
     modifique la funcion cambiandole el nombre a "creacion_tablero" ahora la funcion es completa porque agraga el objetivo "*" y tambien 
     crear el tablero y devuelve una matriz que cuenta con la inforamcion del tablero. Tambien cree otra funcion que simplemte imprime el la matriz (Tablero)
+
+Mati 28/03 10:56
+        modifique la funcion "creacion_tablero" ahora devuelve una tupla que es la matriz y largo del pasillo, tambien cree la funcion
+        "Mover_personaje" pero no la termine.

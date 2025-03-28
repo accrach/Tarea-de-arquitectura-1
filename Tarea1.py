@@ -1,5 +1,31 @@
 import random
 
+def Mover_persoaje(Matriz,Largo):
+    """
+    Esta funcion lo que hace es simplemente preguntar a donde se quiere mover
+    y cambiar los valores de la matriz.
+    Matriz: es el tablero con la informacion actual de tablero.
+    Largo: es el largo del tablero
+    """
+    print("¿Para donde te quieres mover?")
+    print("W: Moverse hacia arriba")
+    print("S: Moverse hacia abajo")
+    print("A: Moverse hacia izquierda")
+    print("D: Moverse hacia la derecha")
+    R = input(print("Ingrece respuesta: ")).upper() #Guardamos las respuestas simepre en mayusculas aunque el usuario ingrese minusculas
+
+    if(Largo<20):
+        print("Debe de ingresar la cantidad de casillas que se quiere mover en binario")
+        Binario = int(input(print("Ingrese cantidad:")))
+
+    elif(Largo<100):    
+        print("Debe de ingresar la cantidad de casillas que se quiere mover en octal")
+        octal = int(input(print("Ingrese cantidad:")))
+
+    else:
+        print("Debe de ingresar la cantidad de casillas que se quiere mover en hexadecimal")    
+        hexadecimal = int(input(print("Ingrese cantidad:")))
+
 def Imprimir_tablero(Tablero):
 
     """
@@ -51,10 +77,12 @@ def creacion_tablero():
     Tablero[pos_objetivo].pop()
     Tablero[pos_objetivo].append("*")
 
-    return Tablero
+    return (Tablero,Largo)
 
+Largo_pasillo = 0
 # Llamar a la función
-tablero = creacion_tablero()
+tablero,Largo_pasillo = creacion_tablero()
 Imprimir_tablero(tablero)
+print(Largo_pasillo)
 
 
