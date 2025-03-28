@@ -1,9 +1,5 @@
 import random
 
-
-
-import random
-
 def Imprimir_tablero(Tablero):
 
     """
