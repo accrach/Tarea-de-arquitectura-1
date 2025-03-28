@@ -62,8 +62,18 @@ def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero
 
 def movimiento_snake(Matriz, pos_snake, pasos, R):
     print(pos_snake)
+    x, y = pos_snake
+    filas = len(Matriz)
+    columnas = len(Matriz[0])
+    
+    if(R == 'W'):
 
-
+    elif(R == 'S'):
+    
+    elif(R == 'A'):
+    
+    elif(R == 'D'):
+    
 
 def Mover_personaje(Matriz,Largo):
     """
