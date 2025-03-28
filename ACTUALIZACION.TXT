@@ -25,6 +25,6 @@ Martin 28/03 12:44
     estaba empezando a hacer la funcion binario
 
 
-Martin 28/03 13:40
+Martin 28/03 14:40
     funcion binario retorna en decimal el numero binario ingresado
     funciones octal y hexadecimal credas, retornan el respectivo numero en decimal
