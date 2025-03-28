@@ -33,5 +33,7 @@ Martin 28/03 19:44
     empezando funcion para mover de casilla a snake
     hice una lista con las posiciones de los guardias y una tupla con la posicion del asterisco para ver si estan en la misma
     casilla comparando con esa lista o esa variable
-    
+
     ACABO DE CACHAR QUE ESO ES MUY INNECESARIO PERO LO TENDRE MIENTRAS, DE AHI LO SACO
+    *hice que si se pasa del limite del tablero se quede en el borde, segun el foro eso lo menajabamos a nuestra eleccion y lo
+    poniamos en el readme

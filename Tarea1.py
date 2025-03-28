@@ -65,15 +65,31 @@ def movimiento_snake(Matriz, pos_snake, pasos, R):
     x, y = pos_snake
     filas = len(Matriz)
     columnas = len(Matriz[0])
-    
-    if(R == 'W'):
 
-    elif(R == 'S'):
-    
-    elif(R == 'A'):
-    
-    elif(R == 'D'):
-    
+    posiciones_intermedias = []     #para ir viendo si de camino se topa un guardia o la meta
+
+    for i in range(pasos):
+        nuevo_x = x
+        nuevo_y = y
+
+
+        if(R == 'W'):
+            nuevo_y -= 1
+        elif(R == 'S'):
+            nuevo_y += 1
+        elif(R == 'A'):
+            nuevo_x -= 1
+        elif(R == 'D'):
+            nuevo_x += 1
+        
+        if (0 <= nuevo_y < len(Matriz) and 0 <= nuevo_x <= len(Matriz[0])):
+            x, y = nuevo_x, nuevo_y
+        
+        posiciones_intermedias.append((x, y))
+
+        
+
+    print(posiciones_intermedias)
 
 def Mover_personaje(Matriz,Largo):
     """
