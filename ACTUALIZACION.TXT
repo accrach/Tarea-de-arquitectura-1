@@ -23,4 +23,7 @@ Mati 28/03 10:56
 Martin 28/03 12:44
     modifique un poco la funcion Mover_personaje para que solo pueda ingresar un valor correcto de movimiento
     estaba empezando a hacer la funcion binario
-    
+
+
+Martin 28/03 13:40
+    funcion binario retorna en decimal el numero binario ingresado

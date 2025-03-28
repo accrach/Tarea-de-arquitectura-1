@@ -1,17 +1,19 @@
 import random
 import math
 
-def binario(numero_binario):
+def binario(numero_binario):     #retorna el valor en decimal del numero binario ingresado
     
     posicion = len(numero_binario) -1
-    
+    total = 0
     for i in numero_binario:
         digito = int(i)
         print(digito, 'posicion: ', posicion)
-        print(digito ** posicion)
+        if digito == 1:
+            valor = 2 ** posicion
+            total += valor 
         posicion -= 1
        
-
+    return total
 
 def Mover_personaje(Matriz,Largo):
     """
