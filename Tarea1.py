@@ -15,11 +15,13 @@ def creacion_tablero():
     - 'S' para el jugador
     - 'X' para espacios vacíos
     - '!' para guardias en posiciones aleatorias
+    - '*' para el objetivo del juego
     Retorna la matriz que es la informacion de nuestro tablero
     """
     Largo = int(input("Largo del pasillo que desea: "))
     guardias = int(input("Ingrese cantidad de guardias que desea: "))
 
+    pos_objetivo = random.randint(0,10)
     posiciones_guardias = random.sample(range(11 * Largo), guardias)
     cant_guardias_printed = 0
     contador = 0
@@ -46,6 +48,8 @@ def creacion_tablero():
         
         Tablero.append(Fila)  # Agregar la fila completa a la matriz
         i += 1
+    Tablero[pos_objetivo].pop()
+    Tablero[pos_objetivo].append("*")
 
     return Tablero
 

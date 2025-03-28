@@ -11,3 +11,7 @@ Martin 27/03 00:07:
 
 Martin 27/03 12:18
     modifique la funcion para poder poner los guardias en posiciones al azar
+
+Mati 27/03 22:30
+    modifique la funcion cambiandole el nombre a "creacion_tablero" ahora la funcion es completa porque agraga el objetivo "*" y tambien 
+    crear el tablero y devuelve una matriz que cuenta con la inforamcion del tablero. Tambien cree otra funcion que simplemte imprime el la matriz (Tablero)
