@@ -19,3 +19,8 @@ Mati 27/03 22:30
 Mati 28/03 10:56
         modifique la funcion "creacion_tablero" ahora devuelve una tupla que es la matriz y largo del pasillo, tambien cree la funcion
         "Mover_personaje" pero no la termine.
+
+Martin 28/03 12:44
+    modifique un poco la funcion Mover_personaje para que solo pueda ingresar un valor correcto de movimiento
+    estaba empezando a hacer la funcion binario
+    

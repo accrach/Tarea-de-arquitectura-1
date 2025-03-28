@@ -1,6 +1,19 @@
 import random
+import math
 
-def Mover_persoaje(Matriz,Largo):
+def binario(numero_binario):
+    
+    posicion = len(numero_binario) -1
+    
+    for i in numero_binario:
+        digito = int(i)
+        print(digito, 'posicion: ', posicion)
+        print(digito ** posicion)
+        posicion -= 1
+       
+
+
+def Mover_personaje(Matriz,Largo):
     """
     Esta funcion lo que hace es simplemente preguntar a donde se quiere mover
     y cambiar los valores de la matriz.
@@ -10,21 +23,40 @@ def Mover_persoaje(Matriz,Largo):
     print("¿Para donde te quieres mover?")
     print("W: Moverse hacia arriba")
     print("S: Moverse hacia abajo")
-    print("A: Moverse hacia izquierda")
+    print("A: Moverse hacia la izquierda")
     print("D: Moverse hacia la derecha")
-    R = input(print("Ingrece respuesta: ")).upper() #Guardamos las respuestas simepre en mayusculas aunque el usuario ingrese minusculas
+    
+    R = ''
+    while(R != 'W' and R != 'S' and R != 'A' and R != 'D' ): #para que solo pueda ingresar un movimiento valido por consola
+    
+        R = input("Ingrese respuesta: ").upper() #Guardamos las respuestas simepre en mayusculas aunque el usuario ingrese minusculas
+    
+
+        movimiento = ''                          #Para despues imprimir en consola hacia donde selecciono moverse
+        if(R == 'W'):
+            movimiento = "arriba"
+        elif(R == 'S'):
+            movimiento = "abajo"
+        elif(R == 'A'):
+            movimiento == "la izquierda"
+        elif(R == 'D'):
+            movimiento == "la derecha"
+        else:
+            print("Movimiento inexistente")
+
 
     if(Largo<20):
-        print("Debe de ingresar la cantidad de casillas que se quiere mover en binario")
-        Binario = int(input(print("Ingrese cantidad:")))
+        print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en formato binario")
+        numero_binario = input("Ingrese cantidad:")
+        binario(numero_binario)
 
     elif(Largo<100):    
-        print("Debe de ingresar la cantidad de casillas que se quiere mover en octal")
-        octal = int(input(print("Ingrese cantidad:")))
+        print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en octal")
+        numero_octal = int(input("Ingrese cantidad:"))
 
     else:
-        print("Debe de ingresar la cantidad de casillas que se quiere mover en hexadecimal")    
-        hexadecimal = int(input(print("Ingrese cantidad:")))
+        print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en hexadecimal")    
+        numero_hexadecimal = int(input("Ingrese cantidad:"))
 
 def Imprimir_tablero(Tablero):
 
@@ -83,6 +115,5 @@ Largo_pasillo = 0
 # Llamar a la función
 tablero,Largo_pasillo = creacion_tablero()
 Imprimir_tablero(tablero)
-print(Largo_pasillo)
-
-
+# print(Largo_pasillo)
+Mover_personaje(tablero, Largo_pasillo)
