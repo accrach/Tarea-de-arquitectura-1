@@ -1,33 +1,60 @@
 import random
 
-def printeo_tablero():
+
+
+import random
+
+def Imprimir_tablero(Tablero):
+
     """
-    Esta funcion lo que hace es pedir al usurio el largo del pasillo
-    y printea el pasillo corresponfiente.
+    Esta funcion lo que hace es simplemente imprimir el tablero (la matriz con la informacion).
+    Tablero: Matriz que imprimira.
+    """
+    for fila in Tablero:
+            print(" ".join(fila))
+
+def creacion_tablero():
+    """
+    Crea una matriz que representa el pasillo con:
+    - 'S' para el jugador
+    - 'X' para espacios vacíos
+    - '!' para guardias en posiciones aleatorias
+    Retorna la matriz que es la informacion de nuestro tablero
     """
     Largo = int(input("Largo del pasillo que desea: "))
     guardias = int(input("Ingrese cantidad de guardias que desea: "))
 
     posiciones_guardias = random.sample(range(11 * Largo), guardias)
     cant_guardias_printed = 0
-    i = 0
     contador = 0
-    #primer while son las columnas.
-    while(11>i):
+    Tablero = []
+
+    # Primer while: Itera sobre las filas (11 filas)
+    i = 0
+    while i < 11:
+        Fila = []  # Se crea la fila correctamente
         e = 0
-        #segundo while es para las filas.    
-        while(Largo> e):
+
+        # Segundo while: Itera sobre las columnas (Largo del pasillo)
+        while e < Largo:
             if e == 0 and i == 5:
-                print("S", end="")
-            
+                Fila.append("S")  # Coloca el jugador
             elif cant_guardias_printed < guardias and contador in posiciones_guardias:
-                print("!", end="")
+                Fila.append("!")  # Coloca un guardia
                 cant_guardias_printed += 1
             else:
-                print("X", end="")
-            e+=1
+                Fila.append("X")  # Espacios vacíos
+            
+            e += 1
             contador += 1
-        i+=1    
-        print("")
+        
+        Tablero.append(Fila)  # Agregar la fila completa a la matriz
+        i += 1
 
-printeo_tablero()
+    return Tablero
+
+# Llamar a la función
+tablero = creacion_tablero()
+Imprimir_tablero(tablero)
+
+
