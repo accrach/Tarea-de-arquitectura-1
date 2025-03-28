@@ -28,3 +28,8 @@ Martin 28/03 12:44
 Martin 28/03 14:40
     funcion binario retorna en decimal el numero binario ingresado
     funciones octal y hexadecimal credas, retornan el respectivo numero en decimal
+
+Martin 28/03 19:44
+    empezando funcion para mover de casilla a snake
+    hice una lista con las posiciones de los guardias y una tupla con la posicion del asterisco para ver si estan en la misma
+    casilla comparando con esa lista o esa variable

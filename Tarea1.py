@@ -60,6 +60,11 @@ def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero
     return total
 
 
+def movimiento_snake(Matriz, pos_snake, pasos, R):
+    print(pos_snake)
+
+
+
 def Mover_personaje(Matriz,Largo):
     """
     Esta funcion lo que hace es simplemente preguntar a donde se quiere mover
@@ -72,7 +77,33 @@ def Mover_personaje(Matriz,Largo):
     print("S: Moverse hacia abajo")
     print("A: Moverse hacia la izquierda")
     print("D: Moverse hacia la derecha")
+
+    posiciones_guardias = []
+    contador_y = 0
+    contador_x = 0
+    for y in Matriz:
+        contador_x = 0
+        for x in y:
+            if Matriz[contador_y][contador_x] == '*':
+                pos_asterisco = (contador_x, contador_y)
+            elif Matriz[contador_y][contador_x] == '!':
+                posiciones_guardias.append((contador_x, contador_y))
+            contador_x += 1
+        contador_y += 1
     
+    print(posiciones_guardias)
+    contador_y = 0
+    contador_x = 0
+    for y in Matriz:
+        contador_x = 0
+        for x in y:
+            if Matriz[contador_y][contador_x] == 'S':
+                pos_snake = (contador_x, contador_y)
+            
+            contador_x += 1
+        contador_y += 1
+
+
     R = ''
     while(R != 'W' and R != 'S' and R != 'A' and R != 'D' ): #para que solo pueda ingresar un movimiento valido por consola
     
@@ -95,17 +126,21 @@ def Mover_personaje(Matriz,Largo):
     if(Largo<20):
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en formato binario")
         numero_binario = input("Ingrese cantidad:")
-        binario(numero_binario)
+        pasos = binario(numero_binario)
+        movimiento_snake(Matriz, pos_snake, pasos, R)
+        
 
     elif(Largo<100):    
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en octal")
         numero_octal = input("Ingrese cantidad:")
-        octal(numero_octal)
+        pasos = octal(numero_octal)
+        movimiento_snake(Matriz, pos_snake, pasos, R)
 
     else:
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en hexadecimal")    
         numero_hexadecimal = input("Ingrese cantidad:")
-        hexadecimal(numero_hexadecimal)
+        pasos = hexadecimal(numero_hexadecimal)
+        movimiento_snake(Matriz, pos_snake, pasos, R)
 
 def Imprimir_tablero(Tablero):
 
@@ -157,7 +192,6 @@ def creacion_tablero():
         i += 1
     Tablero[pos_objetivo].pop()
     Tablero[pos_objetivo].append("*")
-
     return (Tablero,Largo)
 
 Largo_pasillo = 0
