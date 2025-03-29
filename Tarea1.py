@@ -7,7 +7,6 @@ def binario(numero_binario):     #retorna el valor en decimal del numero binario
     total = 0
     for i in numero_binario:
         digito = int(i)
-        print(digito, 'posicion: ', posicion)
         if digito == 1:
             valor = 2 ** posicion
             total += valor 
@@ -82,14 +81,21 @@ def movimiento_snake(Matriz, pos_snake, pasos, R):
         elif(R == 'D'):
             nuevo_x += 1
         
-        if (0 <= nuevo_y < len(Matriz) and 0 <= nuevo_x <= len(Matriz[0])):
+        if (0 <= nuevo_y < len(Matriz) - 1 and 0 <= nuevo_x <= len(Matriz[0]) - 1):
             x, y = nuevo_x, nuevo_y
         
-        posiciones_intermedias.append((x, y))
+        if (x, y) not in posiciones_intermedias: #va guardando por todas las posiciones que pasa para ver si pasa por encima de un guardia o la meta
+            posiciones_intermedias.append((x, y))  #el if para no guardar la posicion repetida y asi el siguiente for itera menos
 
-        
 
-    print(posiciones_intermedias)
+    for x, y in posiciones_intermedias:
+        if Matriz[y][x] == "!":
+            print("atrapado")
+            break
+        elif Matriz[y][x] == "*":
+            print("Ganaste")
+            break
+
 
 def Mover_personaje(Matriz,Largo):
     """

@@ -37,3 +37,9 @@ Martin 28/03 19:44
     ACABO DE CACHAR QUE ESO ES MUY INNECESARIO PERO LO TENDRE MIENTRAS, DE AHI LO SACO
     *hice que si se pasa del limite del tablero se quede en el borde, segun el foro eso lo menajabamos a nuestra eleccion y lo
     poniamos en el readme
+
+
+Martin 28/03 21:06
+    hice la funcion movimiento que guarda todas las casillas por las que se va moviendo y asi despues verificar si paso sobre 
+    un guardia o sobre la meta. falta el return de esa funcion, no se si devolver una flag y la posicion nueva o que, para que vuelva
+    a la otra funcion y hacer un ciclo while para que siga pidiendo entrada de numero
