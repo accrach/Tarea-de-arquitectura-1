@@ -64,6 +64,7 @@ def movimiento_snake(Matriz, pos_snake, pasos, R):
     x, y = pos_snake
     filas = len(Matriz)
     columnas = len(Matriz[0])
+    Matriz[y][x] = "X"
 
     posiciones_intermedias = []     #para ir viendo si de camino se topa un guardia o la meta
 
@@ -91,11 +92,14 @@ def movimiento_snake(Matriz, pos_snake, pasos, R):
     for x, y in posiciones_intermedias:
         if Matriz[y][x] == "!":
             print("atrapado")
-            break
+            Matriz[y][x] = "S"
+            return (False,Matriz)
         elif Matriz[y][x] == "*":
             print("Ganaste")
-            break
-
+            Matriz[y][x] = "S"
+            return (False,Matriz)
+    Matriz[y][x] = "S"
+    return (True ,Matriz)
 
 def Mover_personaje(Matriz,Largo):
     """
@@ -159,20 +163,20 @@ def Mover_personaje(Matriz,Largo):
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en formato binario")
         numero_binario = input("Ingrese cantidad:")
         pasos = binario(numero_binario)
-        movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R)
         
 
     elif(Largo<100):    
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en octal")
         numero_octal = input("Ingrese cantidad:")
         pasos = octal(numero_octal)
-        movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R)
 
     else:
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en hexadecimal")    
         numero_hexadecimal = input("Ingrese cantidad:")
         pasos = hexadecimal(numero_hexadecimal)
-        movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R)
 
 def Imprimir_tablero(Tablero):
 
@@ -230,5 +234,8 @@ Largo_pasillo = 0
 # Llamar a la función
 tablero,Largo_pasillo = creacion_tablero()
 Imprimir_tablero(tablero)
-# print(Largo_pasillo)
-Mover_personaje(tablero, Largo_pasillo)
+I = True
+
+while(I):
+    I,tablero = Mover_personaje(tablero, Largo_pasillo)
+    Imprimir_tablero(tablero)    

@@ -43,3 +43,7 @@ Martin 28/03 21:06
     hice la funcion movimiento que guarda todas las casillas por las que se va moviendo y asi despues verificar si paso sobre 
     un guardia o sobre la meta. falta el return de esa funcion, no se si devolver una flag y la posicion nueva o que, para que vuelva
     a la otra funcion y hacer un ciclo while para que siga pidiendo entrada de numero
+
+Mati 30/03 18:14
+    Modifique la funcion "movimiento snake" donde ya tiene un return de vuelve una tupla un bool que determina si el juego termino o no 
+    y el tablero ya modificado para vover a imprmirlo actualizado. ya deberia estar listo no lo probe mucho pero ya deberia funcionar todo o casi todo.
