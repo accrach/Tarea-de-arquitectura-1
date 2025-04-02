@@ -127,7 +127,6 @@ def Mover_personaje(Matriz,Largo):
             contador_x += 1
         contador_y += 1
     
-    print(posiciones_guardias)
     contador_y = 0
     contador_x = 0
     for y in Matriz:
@@ -152,9 +151,9 @@ def Mover_personaje(Matriz,Largo):
         elif(R == 'S'):
             movimiento = "abajo"
         elif(R == 'A'):
-            movimiento == "la izquierda"
+            movimiento = "la izquierda"
         elif(R == 'D'):
-            movimiento == "la derecha"
+            movimiento = "la derecha"
         else:
             print("Movimiento inexistente")
 
