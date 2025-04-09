@@ -47,3 +47,6 @@ Martin 28/03 21:06
 Mati 30/03 18:14
     Modifique la funcion "movimiento snake" donde ya tiene un return de vuelve una tupla un bool que determina si el juego termino o no 
     y el tablero ya modificado para vover a imprmirlo actualizado. ya deberia estar listo no lo probe mucho pero ya deberia funcionar todo o casi todo.
+
+Martin 08/04 23:52
+    Realice funciones para pasar de decimal a binario, octal y hexadecimal y realice funcion hackeo para terminar el juego
