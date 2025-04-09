@@ -59,8 +59,84 @@ def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero
     return total
 
 
-def movimiento_snake(Matriz, pos_snake, pasos, R):
-    print(pos_snake)
+def decimal_to_bin(numero):
+    num_bin = ''
+    while numero > 0:
+        resto = numero%2
+        num_bin = str(resto) + num_bin
+        numero = numero//2
+    return int(num_bin)
+
+def decimal_to_oct(numero):
+    num_oct = ''
+    while numero > 0:
+        resto = numero%8
+        num_oct = str(resto) + num_oct
+        numero = numero//8
+    return int(num_oct)
+
+def decimal_to_hex(numero):
+    num_hex = ''
+    while numero > 0:
+        resto = numero%16
+        if resto < 10:
+            num_hex = str(resto) + num_hex
+
+        elif(resto == 10):
+            print('s')
+            num_hex = 'A' + num_hex
+
+        elif(resto == 11):
+            num_hex = 'B' + num_hex
+
+        elif(resto == 12):
+            num_hex = 'C' + num_hex
+
+        elif(resto == 13):
+            num_hex = 'D' + num_hex
+
+        elif(resto == 14):
+            num_hex = 'E' + num_hex
+        
+        elif(resto == 15):
+            num_hex = 'F' + num_hex
+        
+        numero = numero//16
+    
+    return num_hex
+
+
+def hackeo(largo):
+    numero = random.randint(0, 10000)
+    print(numero)
+    if largo <= 20:
+        num_bin = decimal_to_bin(numero)
+        respuesta = input("El numero en binario " + str(num_bin) + " es igual a: " )
+        if(int(respuesta) == numero):
+            return True
+        else:
+            return False
+    
+    elif largo <= 100:
+        num_oct = decimal_to_oct(numero)
+        respuesta = input("El numero en octal " + str(num_oct) + " es igual a: " )
+        if(int(respuesta) == numero):
+            return True
+        else:
+            return False
+
+    else:
+        num_hex = decimal_to_hex(numero)
+        respuesta = input("El numero en hexadecimal " + str(num_hex) + " es igual a: " )
+        if(respuesta == str(numero)):
+            return True
+        else:
+            return False
+    
+
+
+def movimiento_snake(Matriz, pos_snake, pasos, R, estado):
+    # print(pos_snake)
     x, y = pos_snake
     filas = len(Matriz)
     columnas = len(Matriz[0])
@@ -88,20 +164,19 @@ def movimiento_snake(Matriz, pos_snake, pasos, R):
         if (x, y) not in posiciones_intermedias: #va guardando por todas las posiciones que pasa para ver si pasa por encima de un guardia o la meta
             posiciones_intermedias.append((x, y))  #el if para no guardar la posicion repetida y asi el siguiente for itera menos
 
-
     for x, y in posiciones_intermedias:
         if Matriz[y][x] == "!":
-            print("atrapado")
+            estado = 0
             Matriz[y][x] = "S"
-            return (False,Matriz)
+            return (False,Matriz, estado)
         elif Matriz[y][x] == "*":
-            print("Ganaste")
+            estado = 1
             Matriz[y][x] = "S"
-            return (False,Matriz)
+            return (False,Matriz, estado)
     Matriz[y][x] = "S"
-    return (True ,Matriz)
+    return (True, Matriz, estado)
 
-def Mover_personaje(Matriz,Largo):
+def Mover_personaje(Matriz,Largo,estado):
     """
     Esta funcion lo que hace es simplemente preguntar a donde se quiere mover
     y cambiar los valores de la matriz.
@@ -158,24 +233,24 @@ def Mover_personaje(Matriz,Largo):
             print("Movimiento inexistente")
 
 
-    if(Largo<20):
+    if(Largo<=20):
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en formato binario")
         numero_binario = input("Ingrese cantidad:")
         pasos = binario(numero_binario)
-        return movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R, estado)
         
 
-    elif(Largo<100):    
+    elif(Largo<=100):    
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en octal")
         numero_octal = input("Ingrese cantidad:")
         pasos = octal(numero_octal)
-        return movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R, estado)
 
     else:
         print("Debe de ingresar la cantidad de casillas que se quiere mover hacia", movimiento, "en hexadecimal")    
         numero_hexadecimal = input("Ingrese cantidad:")
         pasos = hexadecimal(numero_hexadecimal)
-        return movimiento_snake(Matriz, pos_snake, pasos, R)
+        return movimiento_snake(Matriz, pos_snake, pasos, R, estado)
 
 def Imprimir_tablero(Tablero):
 
@@ -234,7 +309,15 @@ Largo_pasillo = 0
 tablero,Largo_pasillo = creacion_tablero()
 Imprimir_tablero(tablero)
 I = True
-
+estado = 0
 while(I):
-    I,tablero = Mover_personaje(tablero, Largo_pasillo)
-    Imprimir_tablero(tablero)    
+    I, tablero, estado = Mover_personaje(tablero, Largo_pasillo, estado)
+    Imprimir_tablero(tablero)
+
+if(estado == 1):
+    ganador = hackeo(Largo_pasillo)
+
+if ganador:
+    print("Felicitaciones, has ganado\n")
+else:
+    print("Lo lamento, has perdido")
