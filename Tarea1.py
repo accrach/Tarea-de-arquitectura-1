@@ -108,7 +108,6 @@ def decimal_to_hex(numero):
 
 def hackeo(largo):
     numero = random.randint(0, 10000)
-    print(numero)
     if largo <= 20:
         num_bin = decimal_to_bin(numero)
         respuesta = input("El numero en binario " + str(num_bin) + " es igual a: " )
