@@ -1,0 +1,24 @@
+integrante 1
+Nombre: Matias Gomez Acuña
+rol: 202373033-5 
+paralelo: 200
+
+Integrante 2
+Nombre: Martin 
+rol:
+paralelo: 200
+
+Funcionamiento del codigo en forma general
+
+    1.Se genera un tablero inicial.
+
+    2.El tablero se imprime para que el jugador vea la situación actual del juego.
+
+    3.En cada turno, se le pide al jugador que ingrese un movimiento. Dependiendo del tamaño del tablero, se le solicita que ingrese el número de pasos en una base numérica específica (binario, octal o hexadecimal).
+
+    4.El número ingresado se convierte a decimal y se mueve la serpiente en la dirección elegida.
+
+    5.Si la serpiente llega a la meta, el jugador gana. Si choca con un guardia, el jugador pierde.
+
+    6.Además, el juego puede incluir el minijuego de hackeo en algún punto.
+

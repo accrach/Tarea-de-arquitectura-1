@@ -2,7 +2,11 @@ import random
 import math
 
 def binario(numero_binario):     #retorna el valor en decimal del numero binario ingresado
-    
+    """
+    Entrada: numero binario
+    Esta funcion lo que hace es pasar un numero binario a decimal
+    retorna: numero decimal (int)
+    """
     posicion = len(numero_binario) - 1
     total = 0
     for i in numero_binario:
@@ -14,6 +18,11 @@ def binario(numero_binario):     #retorna el valor en decimal del numero binario
     return total
 
 def octal(numero_octal):            #retorna el valor en decimal del numero octal ingresado
+    """
+    Entrada: numero octal
+    Esta funcion lo que hace es pasar un numero octal a decimal
+    retorna: numero decimal (int)
+    """
     posicion = len(numero_octal) - 1
     total = 0
 
@@ -25,7 +34,11 @@ def octal(numero_octal):            #retorna el valor en decimal del numero octa
     return total 
 
 def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero hexadecimal ingresado
-    
+    """
+    Entrada: numero hexadecimal
+    Esta funcion lo que hace es pasar un numero hexadecimal a decimal
+    retorna: numero decimal (int)
+    """
     posicion = len(numero_hexadecimal) - 1
     total = 0
     numero_hexadecimal = numero_hexadecimal.upper()
@@ -58,8 +71,18 @@ def hexadecimal(numero_hexadecimal):     #retorna el valor en decimal del numero
     
     return total
 
-
 def decimal_to_bin(numero):
+    '''
+    ***
+    Parámetro:
+    numero: int
+    ***
+    Tipo de retorno: int
+    ***
+    Convierte un número decimal a su representación en sistema binario.
+    Devuelve un entero que representa el número en base 2.
+    '''
+
     num_bin = ''
     while numero > 0:
         resto = numero%2
@@ -68,6 +91,17 @@ def decimal_to_bin(numero):
     return int(num_bin)
 
 def decimal_to_oct(numero):
+    '''
+    ***
+    Parámetro:
+    numero: int
+    ***
+    Tipo de retorno: int
+    ***
+    Convierte un número decimal a su representación en sistema octal.
+    Devuelve un entero que representa el número en base 8.
+    '''
+
     num_oct = ''
     while numero > 0:
         resto = numero%8
@@ -76,6 +110,17 @@ def decimal_to_oct(numero):
     return int(num_oct)
 
 def decimal_to_hex(numero):
+    '''
+    ***
+    Parámetro:
+    numero: int
+    ***
+    Tipo de retorno: str
+    ***
+    Convierte un número decimal a su representación en sistema hexadecimal.
+    Devuelve un string con el número en base 16 usando letras A-F cuando es necesario.
+    '''
+
     num_hex = ''
     while numero > 0:
         resto = numero%16
@@ -107,6 +152,22 @@ def decimal_to_hex(numero):
 
 
 def hackeo(largo):
+    '''
+    ***
+    Parámetros:
+    - largo: largo del pasillo (int).
+
+    ***
+    Tipo de Retorno: bool
+    - True si el jugador responde correctamente, False si no.
+
+    ***
+    Descripción:
+    Simula un sistema de "hackeo" según el largo del pasillo. 
+    Muestra un número aleatorio en binario, octal o hexadecimal, 
+    y el jugador debe ingresar su valor decimal. Si acierta, retorna True; 
+    si se equivoca, retorna False.
+    '''
     numero = random.randint(0, 10000)
     if largo <= 20:
         num_bin = decimal_to_bin(numero)
@@ -131,11 +192,27 @@ def hackeo(largo):
             return True
         else:
             return False
-    
-
 
 def movimiento_snake(Matriz, pos_snake, pasos, R, estado):
-    # print(pos_snake)
+    '''
+    ***
+    Parámetros:
+    - Matriz: matriz del juego.
+    - pos_snake: posición actual del personaje (x, y).
+    - pasos: cantidad de casillas que se moverá.
+    - R: dirección del movimiento ('W', 'A', 'S', 'D').
+    - estado: estado actual del juego (0 = jugando, 1 = ganó, -1 = perdió).
+
+    ***
+    Tipo de Retorno: (bool, Matriz, estado)
+    - bool: True si el juego sigue, False si terminó.
+    - Matriz: tablero actualizado.
+    - estado: nuevo estado del juego.
+
+    ***
+    Descripción:
+    Mueve al personaje en la dirección y cantidad indicada. Si durante el movimiento pasa por un guardia ('!') o la meta ('*'), actualiza el estado del juego y termina el turno.
+    '''
     x, y = pos_snake
     filas = len(Matriz)
     columnas = len(Matriz[0])
