@@ -1,11 +1,11 @@
 integrante 1
-Nombre: Matias Gomez Acuña
+Nombre: Matías Gómez Acuña
 rol: 202373033-5 
 paralelo: 200
 
 Integrante 2
-Nombre: Martin 
-rol:
+Nombre: Martín Pardo
+rol: 202304574-8
 paralelo: 200
 
 Funcionamiento del codigo en forma general
@@ -21,4 +21,30 @@ Funcionamiento del codigo en forma general
     5.Si la serpiente llega a la meta, el jugador gana. Si choca con un guardia, el jugador pierde.
 
     6.Además, el juego puede incluir el minijuego de hackeo en algún punto.
+
+explicacion de funciones:
+
+    dentro de cada funcion hay una explicacion simple de como funciona.
+
+    La función binario(numero_binario) convierte un número dado en forma de cadena binaria (base 2) a su representación en decimal. Recorre cada dígito desde el más significativo al menos significativo y suma su valor multiplicado por una potencia de 2 correspondiente a su posición.
+
+    La función octal(numero_octal) transforma una cadena que representa un número en base 8 (octal) a su equivalente decimal. Para ello, multiplica cada dígito por 8 elevado a su posición, de derecha a izquierda, y acumula el resultado en una variable.
+
+    La función hexadecimal(numero_hexadecimal) convierte una cadena que representa un número en base 16 a decimal. Utiliza un diccionario que asigna valores numéricos a los caracteres hexadecimales (0–9 y A–F) y suma cada valor multiplicado por 16 elevado a la posición del dígito.
+
+    La función decimal_to_bin(numero) toma un número decimal y lo convierte a binario. Utiliza divisiones sucesivas por 2, almacenando los residuos en una lista, que luego invierte y une en una cadena para devolver el número binario.
+
+    La función decimal_to_oct(numero) convierte un número decimal a su representación octal mediante el mismo proceso de divisiones sucesivas, pero dividiendo entre 8, y une los residuos invertidos en una cadena final.
+
+    La función decimal_to_hex(numero) convierte un número decimal a su forma hexadecimal. Utiliza divisiones sucesivas entre 16, mapeando los residuos mayores a 9 en las letras A–F, y luego arma la cadena hexadecimal resultante en orden inverso.
+
+    La función hackeo(largo) representa un minijuego de hackeo en el que se genera un número aleatorio y se muestra en binario, octal o hexadecimal según el tamaño del tablero (largo). El jugador debe ingresar la conversión correcta a decimal. Si lo hace correctamente, se devuelve True; si no, se devuelve False.
+
+    La función movimiento_snake(tablero, fila, columna, direccion, pasos) actualiza la posición de la serpiente (‘S’) en el tablero según la dirección y cantidad de pasos ingresados. Valida si el movimiento choca contra un guardia (‘!’), en cuyo caso el jugador pierde, o si alcanza la meta (‘*’), en cuyo caso gana. Devuelve la nueva posición de la serpiente y el estado del juego.
+
+    La función Mover_personaje(tablero, fila, columna) solicita al jugador una dirección de movimiento (W, A, S, D) y un número de pasos expresado en binario, octal o hexadecimal, dependiendo del tamaño del tablero. Convierte ese valor a decimal y llama a movimiento_snake() para ejecutar el movimiento. Si el movimiento es inválido o la entrada es incorrecta, solicita una nueva entrada.
+
+    La función Imprimir_tablero(tablero) imprime en pantalla la matriz del tablero, fila por fila, mostrando la posición actual de la serpiente, la meta, los guardias y los espacios vacíos.
+
+    La función creacion_tablero() se encarga de crear el tablero inicial del juego con una dimensión aleatoria entre 10 y 200. Coloca a la serpiente (‘S’) en una posición aleatoria, al igual que la meta (‘*’), y posiciona un número aleatorio de guardias (‘!’) en ubicaciones diferentes. Devuelve el tablero y las posiciones iniciales del jugador.
 
